@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.Authentication;
 using WebApplication1.Models;
-
+using Microsoft.AspNetCore.Authorization;
 namespace WebApplication1.Controllers
 {
     [Route("api/[controller]")]
@@ -25,7 +25,7 @@ namespace WebApplication1.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<WorkExperience>>> GetWorkExperience()
         {
-            return await _context.WorkExperience.ToListAsync();
+            return await _context.WorkExperience.Include(c => c.Roles).ToListAsync();
         }
 
         // GET: api/WorkExperiences/5
@@ -33,7 +33,7 @@ namespace WebApplication1.Controllers
         public async Task<ActionResult<WorkExperience>> GetWorkExperience(int id)
         {
             var workExperience = await _context.WorkExperience.FindAsync(id);
-
+            
             if (workExperience == null)
             {
                 return NotFound();
@@ -77,7 +77,7 @@ namespace WebApplication1.Controllers
         // POST: api/WorkExperiences
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [Microsoft.AspNetCore.Authorization.Authorize]
+        [Authorize]
         [HttpPost]
         public async Task<ActionResult<WorkExperience>> PostWorkExsperience(WorkExperience workExperience)
         {

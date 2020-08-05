@@ -222,8 +222,8 @@ namespace WebApplication1.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Text")
-                        .HasColumnType("int");
+                    b.Property<string>("Text")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("WorkExperienceId")
                         .HasColumnType("int");
@@ -281,11 +281,11 @@ namespace WebApplication1.Migrations
                     b.Property<string>("Company")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("WorkingFrom")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("WorkingFrom")
+                        .HasColumnType("datetime2");
 
-                    b.Property<int>("WorkingTo")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("WorkingTo")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 

@@ -10,8 +10,8 @@ using WebApplication1.Authentication;
 namespace WebApplication1.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200805124816_new")]
-    partial class @new
+    [Migration("20200805134558_initialize")]
+    partial class initialize
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -224,8 +224,8 @@ namespace WebApplication1.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Text")
-                        .HasColumnType("int");
+                    b.Property<string>("Text")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("WorkExperienceId")
                         .HasColumnType("int");
@@ -283,11 +283,11 @@ namespace WebApplication1.Migrations
                     b.Property<string>("Company")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("WorkingFrom")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("WorkingFrom")
+                        .HasColumnType("datetime2");
 
-                    b.Property<int>("WorkingTo")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("WorkingTo")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 

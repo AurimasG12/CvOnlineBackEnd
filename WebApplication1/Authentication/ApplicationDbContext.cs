@@ -16,6 +16,7 @@ namespace WebApplication1.Authentication
             base.OnModelCreating(builder);
         }
         public DbSet<WebApplication1.Models.Skill> Skill { get; set; }
+        public DbSet<WebApplication1.Models.Role> Role { get; set; }
         public DbSet<WebApplication1.Models.SocialNetworkAccounts> SocialNetworkAccounts { get; set; }
         public DbSet<WebApplication1.Models.WorkExperience> WorkExperience { get; set; }
     }
