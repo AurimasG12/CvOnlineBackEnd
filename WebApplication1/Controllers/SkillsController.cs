@@ -11,7 +11,7 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
-    [Authorize]
+   
     [Route("api/[controller]")]
     [ApiController]
     public class SkillsController : ControllerBase
@@ -47,6 +47,7 @@ namespace WebApplication1.Controllers
         // PUT: api/Skills/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        [Authorize]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutSkill(int id, Skill skill)
         {
@@ -79,6 +80,7 @@ namespace WebApplication1.Controllers
         // POST: api/Skills
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        [Authorize]
         [HttpPost]
         public async Task<ActionResult<Skill>> PostSkill(Skill skill)
         {
@@ -89,6 +91,7 @@ namespace WebApplication1.Controllers
         }
 
         // DELETE: api/Skills/5
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<ActionResult<Skill>> DeleteSkill(int id)
         {
